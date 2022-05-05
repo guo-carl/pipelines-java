@@ -27,4 +27,4 @@ steps:
     namespace: 'pipeline-dev'
     manifests: 'manifests/deployment.yaml'
     containers: 'evuedsoacr.azurecr.io/ava/guoyang/test/nginx:1.8'
-    imagePullSecrets: 'pipeline-deploy-token-9cfx7'   
+    imagePullSecrets: 'pipeline-deploy'   
