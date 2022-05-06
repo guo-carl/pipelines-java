@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nginx-deploy
-          image: nginx:1.8
+          image: evuedsoacr.azurecr.io/ava/guoyang/test/nginx:1.8
           ports:
           - containerPort: 80
       serviceAccountName: pipeline-deploy
