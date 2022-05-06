@@ -25,6 +25,6 @@ steps:
     action: 'deploy'
     kubernetesServiceConnection: 'myk8s_connection'
     namespace: 'pipeline-dev'
-    manifests: 'manifests/deployment.yaml'
+    manifests: 'manifests/*.yaml'
     containers: 'evuedsoacr.azurecr.io/ava/guoyang/test/nginx:1.8'
     imagePullSecrets: 'pipeline-deploy'   
