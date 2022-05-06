@@ -23,7 +23,7 @@ steps:
 - task: KubernetesManifest@0
   inputs:
     action: 'deploy'
-    kubernetesServiceConnection: 'myk8s_connection'
+    kubernetesServiceConnection: 'k8s_connection_dvueappaks2'
     namespace: 'pipeline-dev'
     manifests: 'manifests/*.yaml'
     containers: 'evuedsoacr.azurecr.io/ava/guoyang/test/nginx:1.8'
