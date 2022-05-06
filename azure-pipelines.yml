@@ -29,7 +29,7 @@ steps:
   displayName: Build and Push
   inputs:
     command: buildAndPush
-    repository: test/nginx # username/contosoRepository for DockerHub
+    repository: test/hello # username/contosoRepository for DockerHub
     tags: |
       tag1
 - task: Docker@2
