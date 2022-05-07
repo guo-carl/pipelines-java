@@ -8,7 +8,7 @@ WORKDIR /
 #WORKDIR .
 #COPY ["package.json", "package-lock.json*", "./"]
 #COPY ["helloworld.war",  "/usr/local/tomcat/webapps/"]
-COPY ["target/helloworld.war",  "/usr/local/tomcat/webapps/"]
+COPY ["./target/helloworld.war",  "/usr/local/tomcat/webapps/"]
 #RUN npm install --production
 
 #COPY . .
