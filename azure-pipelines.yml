@@ -69,4 +69,4 @@ steps:
     namespace: $(k8sNamespace)
     manifests: 'manifests/*.yaml'
     containers: 'evuedsoacr.azurecr.io/ava/guoyang/test/nginx:1.8'
-    imagePullSecrets: '$(k8sImagePullSecrets)
+    imagePullSecrets: $(k8sImagePullSecrets)
