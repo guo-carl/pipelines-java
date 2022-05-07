@@ -40,9 +40,9 @@ steps:
   displayName: Push image
   inputs:
     containerRegistry: dvue2-acr-evue2dsoacr-sc
-    repository: $(acrName)/$(imageName)
+    repository: $(imageName)
     command: push
-    tags: testtag1
+    tags: 365
 
 - task: Docker@2
   displayName: Logout of ACR
