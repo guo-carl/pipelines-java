@@ -67,7 +67,8 @@ steps:
     action: 'deploy'
     kubernetesServiceConnection: $(k8sServiceConnection)
     namespace: $(k8sNamespace)
+    # $(System.ArtifactsDirectory) ==> /home/vsts/work/1/a/ on server
     manifests: |
-      $(System.ArtifactsDirectory)/manifests/*.yaml
+      manifests/*.yaml
     containers: $(containerRegistry)/$(imageRepository):$(tag)
     imagePullSecrets: $(k8sImagePullSecrets)
