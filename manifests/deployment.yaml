@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nginx-deploy
-          image: ava/guoyang/test/test-tomcat
+          image: evuedsoacr.azurecr.io/ava/guoyang/test/test-tomcat
           imagePullPolicy: Always
           ports:
           - containerPort: 8080
