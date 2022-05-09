@@ -10,8 +10,8 @@ trigger:
 #  vmImage: ubuntu-latest
 
 variables:
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'dvue2-acr-evue2dsoacr-sc'
+  # Container registry service connection established during pipeline creation // 'dvue2-acr-evue2dsoacr-sc'
+  dockerRegistryServiceConnection:  'dvue-acr-evuedsoacr-sc'
   # e.g.  nginx
   imageRepository: 'ava/guoyang/test/test-tomcat'
   containerRegistry: 'evuedsoacr.azurecr.io'
