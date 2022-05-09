@@ -67,6 +67,7 @@ steps:
     action: 'deploy'
     kubernetesServiceConnection: $(k8sServiceConnection)
     namespace: $(k8sNamespace)
-    manifests: 'manifests/*.yaml'
+    manifests: |
+      $(System.ArtifactsDirectory)/manifests/*.yaml
     containers: $(containerRegistry)/$(imageRepository):$(tag)
     imagePullSecrets: $(k8sImagePullSecrets)

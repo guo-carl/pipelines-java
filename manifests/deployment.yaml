@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: nginx-deploy
-          image: nginx:1.8
+          image: ava/guoyang/test/test-tomcat
+          imagePullPolicy: Always
           ports:
-          - containerPort: 80
+          - containerPort: 8080
       serviceAccountName: pipeline-deploy
