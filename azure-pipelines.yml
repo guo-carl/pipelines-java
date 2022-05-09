@@ -13,8 +13,8 @@ variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'dvue2-acr-evue2dsoacr-sc'
   # e.g.  nginx
-  imageRepository: 'test-tomcat'
-  containerRegistry: 'evue2dsoacr.azurecr.io'
+  imageRepository: 'ava/guoyang/test/test-tomcat'
+  containerRegistry: 'evuedsoacr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   k8sServiceConnection: 'k8s_connection_dvueappaks2'
   k8sNamespace: 'pipeline-dev'
@@ -68,5 +68,5 @@ steps:
     kubernetesServiceConnection: $(k8sServiceConnection)
     namespace: $(k8sNamespace)
     manifests: 'manifests/*.yaml'
-    containers: 'evuedsoacr.azurecr.io/ava/guoyang/test/nginx:1.8'
+    containers: $(containerRegistry)/$(imageRepository):$(tag)
     imagePullSecrets: $(k8sImagePullSecrets)
