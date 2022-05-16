@@ -72,7 +72,7 @@ steps:
 #      manifests/*.yaml
 #    containers: $(containerRegistry)/$(imageRepository):$(tag)
 #    imagePullSecrets: $(k8sImagePullSecrets)
--
+
 - task: Kubernetes@1
   displayName: kubectl apply
   inputs:
