@@ -62,13 +62,30 @@ steps:
     command: logout
     containerRegistry: $(dockerRegistryServiceConnection)
 
-- task: KubernetesManifest@0
+#- task: KubernetesManifest@0
+#  inputs:
+#    action: 'deploy'
+#    kubernetesServiceConnection: $(k8sServiceConnection)
+#    namespace: $(k8sNamespace)
+#    # $(System.ArtifactsDirectory) ==> /home/vsts/work/1/a/ on server
+#    manifests: |
+#      manifests/*.yaml
+#    containers: $(containerRegistry)/$(imageRepository):$(tag)
+#    imagePullSecrets: $(k8sImagePullSecrets)
+-
+- task: Kubernetes@1
+  displayName: kubectl apply
   inputs:
-    action: 'deploy'
-    kubernetesServiceConnection: $(k8sServiceConnection)
+    connectionType: Kubernetes Service Connection
+    kubernetesServiceEndpoint: $(k8sServiceConnection)
     namespace: $(k8sNamespace)
-    # $(System.ArtifactsDirectory) ==> /home/vsts/work/1/a/ on server
-    manifests: |
-      manifests/*.yaml
-    containers: $(containerRegistry)/$(imageRepository):$(tag)
-    imagePullSecrets: $(k8sImagePullSecrets)
+    command: apply
+    arguments: -f manifests/deployment.yaml
+    secretType: dockerRegistry
+    containerRegistryType: Azure Container Registry
+    azureSubscriptionEndpointForSecrets: $(k8sServiceConnection)
+    azureContainerRegistry: $(containerRegistry)
+    secretName: $(k8sImagePullSecrets)
+    forceUpdate: true
+
+
